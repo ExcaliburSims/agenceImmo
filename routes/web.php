@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\PropertyController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('admin')->name("admin.")->group(function () {
+    Route::resource("property", PropertyController::class);
 });
